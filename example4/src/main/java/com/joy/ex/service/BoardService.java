@@ -12,7 +12,7 @@ public interface BoardService {
 
     public List<Map<String, Object>> listBoard();
 
-    public void insertBoard(Map<String, Object> board);
+    public void insertBoard(Board board);
 
     void deleteBoard(int id);
 

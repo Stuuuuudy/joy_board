@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by heesun on 2017. 7. 14..
  */
-public class AbstractDAO {
+public abstract class AbstractDAO {
     protected Log log = LogFactory.getLog(AbstractDAO.class);
 
     @Autowired

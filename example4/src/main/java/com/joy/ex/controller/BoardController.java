@@ -4,6 +4,7 @@ import com.joy.ex.model.Board;
 import com.joy.ex.service.BoardService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,26 +21,26 @@ import java.util.logging.Logger;
 @RequestMapping(value = "/board")
 public class BoardController {
 
-    @Resource
+    @Autowired
     private BoardService boardService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @GetMapping(value = "/list")
     public ResponseEntity listBoard() {
         List<Map<String, Object>> list = boardService.listBoard();
         return ResponseEntity.ok(list);
     }
 
-    @RequestMapping(value = "/insert", method = RequestMethod.PUT)
-    public void insertBoard(@RequestBody Map<String, Object> board) {
+    @PostMapping(value = "/insert")
+    public void insertBoard(@RequestBody Board board) {
         boardService.insertBoard(board);
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @PutMapping(value = "/update")
     public void updateBoard(@RequestBody Board board) {
         boardService.update(board);
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @DeleteMapping(value = "/delete/{id}")
     public void deleteBoard(@PathVariable int id) {
         boardService.deleteBoard(id);
     }

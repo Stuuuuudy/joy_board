@@ -4,7 +4,6 @@
 <mapper namespace="crud">
     <select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
         <![CDATA[
-
             SELECT
                 id,
                 parent_id,
@@ -19,8 +18,6 @@
             WHERE
                 deleted = 'N'
             ORDER BY id DESC
-
-
         ]]>
     </select>
 

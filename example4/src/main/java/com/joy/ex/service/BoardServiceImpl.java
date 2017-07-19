@@ -1,10 +1,10 @@
 package com.joy.ex.service;
 
-import com.joy.ex.dao.CrudDAO;
+import com.joy.ex.dao.BoardDAO;
 import com.joy.ex.model.Board;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -14,26 +14,26 @@ import java.util.Map;
 @Service
 public class BoardServiceImpl implements BoardService {
 
-    @Resource
-    private CrudDAO crudDao;
+    @Autowired
+    private BoardDAO mysqlDAO;
 
     @Override
     public List<Map<String, Object>> listBoard() {
-        return crudDao.selectBoardList();
+        return mysqlDAO.selectBoardList();
     }
 
     @Override
-    public void insertBoard(Map<String, Object> board) {
-        crudDao.insertBoard(board);
+    public void insertBoard(Board board) {
+        mysqlDAO.insertBoard(board);
     }
 
     @Override
     public void deleteBoard(int id) {
-        crudDao.deleteBoard(id);
+        mysqlDAO.deleteBoard(id);
     }
 
     @Override
     public void update(Board board) {
-        crudDao.updateBoard(board);
+        mysqlDAO.updateBoard(board);
     }
 }
