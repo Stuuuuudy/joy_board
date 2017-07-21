@@ -13,6 +13,9 @@ public class Board {
     private String created_at;
     private String writer;
 
+    public Board() {
+    }
+
     public Board(long id, long parent_id, String title, String contents, long hits, boolean deleted, String created_at, String writer) {
         this.id = id;
         this.parent_id = parent_id;
